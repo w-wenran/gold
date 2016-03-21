@@ -16,11 +16,8 @@
        http://www.springframework.org/schema/task
        http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 
-   <!-- <context:load-time-weaver/>-->
     <context:annotation-config/>
-    <!--<context:component-scan base-package="org.reststackteam.reststack"/>-->
-    <!--<context:load-time-weaver weaver-class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>-->
-    <!--<jpa:repositories base-package="org.reststackteam.reststack.repositories"/>-->
+    <jpa:repositories base-package="gold.reststack.repositories"/>
 
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
@@ -30,7 +27,7 @@
         </property>
     </bean>
 
-    <!--<bean id="defaultDataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+    <bean id="defaultDataSource" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="${driverClassName}"/>
         <property name="url" value="${url}"/>
         <property name="username" value="${username}"/>
@@ -38,22 +35,21 @@
     </bean>
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="defaultDataSource"/>
-        <property name="packagesToScan" value="org.reststackteam.reststack.datamodels"/>
-        <property name="loadTimeWeaver" ref="loadTimeWeaver"/>
+        <property name="packagesToScan" value="gold.reststack.models"/>
         <property name="sharedCacheMode" value="NONE"/>
         <property name="jpaVendorAdapter">
-            <bean class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
                 <property name="showSql" value="${showSql}"/>
                 <property name="generateDdl" value="${generateDdl}"/>
-                <property name="databasePlatform" value="${databasePlatform}"/>
+                <property name="database" value="${databasePlatform}"/>
             </bean>
         </property>
     </bean>
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
--->
+
     <task:annotation-driven/>
 
-    <!--<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>-->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
 </beans>

@@ -10,6 +10,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 
 /**
  * Created by wangwr on 2016.3.18.
@@ -17,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
-//@ServletComponentScan
+@ImportResource("classpath:spring-context.xml")
 public class AppApplication extends SpringBootServletInitializer {
 
 
