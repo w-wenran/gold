@@ -16,14 +16,17 @@
 
 package org.oauth2;
 
+import org.gold.reststack.runtime.APIContext;
 import org.gold.starter.AppApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.TestRestTemplate;
 import org.springframework.boot.test.WebIntegrationTest;
+import org.springframework.context.ApplicationContext;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -33,13 +36,16 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  *
  * @author Dave Syer
  */
-@RunWith(SpringJUnit4ClassRunner.class)
+/*@RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(AppApplication.class)
 @WebIntegrationTest(value = "8080")
-@DirtiesContext
-public class SampleServletApplicationTests {
+@DirtiesContext*/
+public class SampleServletApplicationTests extends BaseTest{
 
 	Logger logger = LoggerFactory.getLogger(this.getClass());
+
+	@Autowired
+	private ApplicationContext applicationContext;
 
 	@Test
 	public void testHomeIsSecure() throws Exception {
@@ -50,10 +56,8 @@ public class SampleServletApplicationTests {
 
 
 	@Test
-	public void logtest(){
-		logger.info("=====================info");
-		logger.error("==================================error");
-		logger.warn("============================warn");
-		logger.debug("===========================debug");
+	public void apiTest(){
+		super.show(APIContext.getAllReqMappings(applicationContext));
 	}
+
 }

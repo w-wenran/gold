@@ -1,5 +1,6 @@
 package org.gold.reststack.controller;
 
+import org.gold.reststack.annotation.API;
 import org.gold.reststack.models.User;
 import org.gold.reststack.service.UserServiceIml;
 import org.slf4j.Logger;
@@ -20,6 +21,7 @@ public class UserController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    @API(name = "首页展示",auth = false,params = {"name:姓名"},reqClass = User.class,respClass = User.class)
     @RequestMapping(value = "/home",method = RequestMethod.GET)
     public Object home(){
         logger.info("=====================info");

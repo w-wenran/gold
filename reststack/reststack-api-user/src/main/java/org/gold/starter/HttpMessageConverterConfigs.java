@@ -3,7 +3,7 @@ package org.gold.starter;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import gold.reststack.runtime.HttpServiceDateFormat;
+import org.gold.reststack.runtime.HttpServiceDateFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
 import org.springframework.context.annotation.Bean;

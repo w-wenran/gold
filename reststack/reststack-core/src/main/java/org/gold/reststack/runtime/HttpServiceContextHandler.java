@@ -1,4 +1,4 @@
-package gold.reststack.runtime;
+package org.gold.reststack.runtime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;

@@ -1,4 +1,4 @@
-package gold.reststack.runtime;
+package org.gold.reststack.runtime;
 
 import org.springframework.context.ApplicationContext;
 import javax.servlet.http.HttpServletRequest;
