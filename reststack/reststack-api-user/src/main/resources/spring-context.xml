@@ -17,7 +17,7 @@
        http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 
     <context:annotation-config/>
-    <jpa:repositories base-package="gold.reststack.repositories"/>
+    <jpa:repositories base-package="org.gold.reststack.repositories"/>
 
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
@@ -35,7 +35,7 @@
     </bean>
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="defaultDataSource"/>
-        <property name="packagesToScan" value="gold.reststack.models"/>
+        <property name="packagesToScan" value="org.gold.reststack.models"/>
         <property name="sharedCacheMode" value="NONE"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">

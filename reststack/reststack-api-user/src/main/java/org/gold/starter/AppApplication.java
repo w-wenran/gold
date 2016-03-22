@@ -1,13 +1,10 @@
-package gold.starter;
+package org.gold.starter;
 
-import jp.eisbahn.oauth2.server.spi.servlet.ProtectedResourceFilter;
+import org.gold.reststack.filters.HttpFilters;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
-import org.springframework.boot.web.servlet.ServletComponentScan;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
@@ -17,25 +14,15 @@ import org.springframework.context.annotation.ImportResource;
  */
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan
+@ComponentScan({"org.gold.reststack"})
 @ImportResource("classpath:spring-context.xml")
 public class AppApplication extends SpringBootServletInitializer {
 
-
-
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(AppApplication.class);
-    }
-
-    @Bean
-    public FilterRegistrationBean someFilterRegistration() {
-        FilterRegistrationBean registration = new FilterRegistrationBean();
-        registration.setFilter(new ProtectedResourceFilter());
-        registration.addUrlPatterns("/api/*");
-        registration.addInitParameter("paramName", "paramValue");
-        registration.setName("someFilter");
-        return registration;
+        return builder.sources(HttpFilters.class,
+                HttpMessageConverterConfigs.class,
+                ContentNegotiationConfigs.class);
     }
 
     public static void main(String[] args){

@@ -14,20 +14,17 @@
  * limitations under the License.
  */
 
-package oauth2;
+package org.oauth2;
 
-import gold.starter.AppApplication;
+import org.gold.starter.AppApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.TestRestTemplate;
 import org.springframework.boot.test.WebIntegrationTest;
-import org.springframework.format.datetime.DateFormatter;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -42,22 +39,21 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @DirtiesContext
 public class SampleServletApplicationTests {
 
-	/*@Autowired
-	private SecurityProperties security;*/
+	Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Test
 	public void testHomeIsSecure() throws Exception {
-		ResponseEntity<String> entity = new TestRestTemplate().getForEntity("http://localhost:8080/api/token", String.class);
+		ResponseEntity<String> entity = new TestRestTemplate().getForEntity("http://localhost:8080/home.json", String.class);
 		System.out.println(entity.getStatusCode());
+		System.out.println(entity.toString());
 	}
+
 
 	@Test
-	public void testHome() throws Exception {
-		/*ResponseEntity<String> entity = new TestRestTemplate("user", getPassword())
-				.getForEntity("http://localhost:" + this.port, String.class);*/
+	public void logtest(){
+		logger.info("=====================info");
+		logger.error("==================================error");
+		logger.warn("============================warn");
+		logger.debug("===========================debug");
 	}
-
-	/*private String getPassword() {
-		return this.security.getUser().getPassword();
-	}*/
 }

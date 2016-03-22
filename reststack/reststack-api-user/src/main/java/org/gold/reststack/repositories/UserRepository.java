@@ -1,7 +1,7 @@
-package gold.reststack.repositories;
+package org.gold.reststack.repositories;
 
 
-import gold.reststack.models.User;
+import org.gold.reststack.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

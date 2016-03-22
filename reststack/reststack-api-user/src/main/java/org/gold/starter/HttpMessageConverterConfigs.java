@@ -1,4 +1,4 @@
-package gold.starter;
+package org.gold.starter;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,7 +17,7 @@ import java.text.DateFormat;
  * Created by wangwr on 2016.3.21.
  */
 @Configuration
-public class ApplicationConfigs {
+public class HttpMessageConverterConfigs {
 
     @Autowired
     private ObjectMapper jsonObjectMapper;

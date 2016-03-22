@@ -1,4 +1,4 @@
-package gold.reststack.interceptor;
+package org.gold.reststack.interceptor;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 

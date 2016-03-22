@@ -1,4 +1,4 @@
-package gold.reststack.models;
+package org.gold.reststack.models;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
