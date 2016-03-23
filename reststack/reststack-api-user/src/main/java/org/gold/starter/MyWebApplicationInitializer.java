@@ -1,5 +1,8 @@
 package org.gold.starter;
 
+import org.gold.reststack.servlets.APIDocumentServlet;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.servlet.DispatcherServlet;
 
@@ -12,10 +15,18 @@ import javax.servlet.ServletRegistration;
  */
 public class MyWebApplicationInitializer implements WebApplicationInitializer {
 
+    @Autowired
+    private ApplicationContext applicationContext;
+
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
-        ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcher",new DispatcherServlet());
-        registration.addMapping("/api/*");
-        registration.setLoadOnStartup(1);
+        ServletRegistration.Dynamic dispatcher  = servletContext.addServlet("dispatcher",new DispatcherServlet());
+        dispatcher.addMapping("/api/*");
+        dispatcher.setLoadOnStartup(1);
+
+        ServletRegistration.Dynamic api_document = servletContext.addServlet("api_document",new APIDocumentServlet());
+        api_document.addMapping("/apis/documents");
+        api_document.setLoadOnStartup(1);
+        
     }
 }

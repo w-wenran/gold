@@ -212,7 +212,7 @@ public abstract class DataHandler {
 
 	/**
 	 * Validate the client specified by the client ID.
-	 * This method is used to check the client at accessing a protected resource.
+	 * This method is used to check the client at accessing a protected res.
 	 * When the access token passed from the client is valid, the client status
 	 * may be invalid in the OAuth provider side. In this case, this method must
 	 * return false to refuse the access to all API endpoints.
@@ -224,7 +224,7 @@ public abstract class DataHandler {
 
 	/**
 	 * Validate the user specified by the user ID.
-	 * This method is used to check the user at accessing a protected resource.
+	 * This method is used to check the user at accessing a protected res.
 	 * When the access token passed from the client is valid, the user status
 	 * may be invalid or may be left in the OAuth provider side. In these case,
 	 * this method must return false to refuse the access to all API endpoints.
@@ -236,7 +236,7 @@ public abstract class DataHandler {
 
 	/**
 	 * Retrieve the access token from the token string.
-	 * This method is used at accessing a protected resource. This sub class
+	 * This method is used at accessing a protected res. This sub class
 	 * should fetch the access token information from your database or etc and
 	 * return it. If the access token has been revoked by the user or there is
 	 * other reason, this method must return the null value to refuse the access
@@ -248,7 +248,7 @@ public abstract class DataHandler {
 
 	/**
 	 * Retrieve the authorization information by the ID.
-	 * This method is used at accessing a protected resource. The getAccessTkoken()
+	 * This method is used at accessing a protected res. The getAccessTkoken()
 	 * method is called before this method calling. The result has a ID of the
 	 * authorization information. The ID is passed to this method as an
 	 * argument. This sub class must return the authorization information instance

@@ -36,7 +36,7 @@ import java.util.List;
 
 /**
  * This servlet filter checks whether a request to access to each protected
- * resource is valid or not as the OAuth 2.0.
+ * res is valid or not as the OAuth 2.0.
  * 
  * This instance needs two helper objects. One is a DataHandlerFactory instance.
  * Other one is a AccessTokenFetcherProvider instance. These implementation
@@ -98,7 +98,7 @@ public class ProtectedResourceFilter implements Filter {
 
 	/**
 	 * Check the request for whether can access or not to APIs to access the protected
-	 * resource.
+	 * res.
 	 * 
 	 * @param req The request object.
 	 * @param resp The response object.

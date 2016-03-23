@@ -269,7 +269,7 @@ public abstract class OAuthError extends Exception {
 
 	/**
 	 * This means that the provided authorization grant (e.g., authorization
-	 * code, resource owner credentials) or refresh token is
+	 * code, res owner credentials) or refresh token is
 	 * invalid, expired, revoked, does not match the redirection
 	 * URI used in the authorization request, or was issued to
 	 * another client. For instance, this error type is
@@ -330,7 +330,7 @@ public abstract class OAuthError extends Exception {
 
 	/**
 	 * This means that the requested scope is invalid, unknown, malformed, or
-	 * exceeds the scope granted by the resource owner. For instance, this
+	 * exceeds the scope granted by the res owner. For instance, this
 	 * error type is "invalid_scope".
 	 * 
 	 * @author Yoichiro Tanaka
