@@ -164,7 +164,7 @@ public class Token {
 		 * Retrieve the JSON string which has a token information.
 		 * The JSON string has the access token, refresh token, expires_in
 		 * value and the scope string. If the issuing a token failed,
-		 * this json string has the error type and description.
+		 * this beannote string has the error type and description.
 		 * @return The JSON string value.
 		 */
 		public String getBody() {

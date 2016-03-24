@@ -65,9 +65,11 @@ public class ApiDocumentHandler {
             target.append("<div class=\"box\">");
             target.append("<div class=\"box-title\">接口文档</div>");
             target.append("<div class=\"box-notice\">");
-            target.append("<div class=\"red notice-title\">更新通知</div>");
+            target.append("<div class=\"red notice-title\">文档说明</div>");
             target.append("<ul class=\"notice-body\">");
             target.append("<li>该接口文档为实时更新文档</li>");
+            target.append("<li>接口地址定义遵循restful风格</li>");
+            target.append("<li>所有地址以及参数命名均采用下划线作为单词分割</li>");
             target.append("</ul>");
             target.append("</div>");
             target.append("<div class=\"interface\">");

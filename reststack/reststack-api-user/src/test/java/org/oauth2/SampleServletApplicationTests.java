@@ -49,7 +49,7 @@ public class SampleServletApplicationTests extends BaseTest{
 
 	@Test
 	public void testHomeIsSecure() throws Exception {
-		ResponseEntity<String> entity = new TestRestTemplate().getForEntity("http://localhost:8080/home.json", String.class);
+		ResponseEntity<String> entity = new TestRestTemplate().getForEntity("http://localhost:8080/home.beannote", String.class);
 		System.out.println(entity.getStatusCode());
 		System.out.println(entity.toString());
 	}

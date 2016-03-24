@@ -41,7 +41,7 @@ public class HttpMessageConverterConfigs {
     @Bean
     public HttpMessageConverters messageConverterJson(){
 
-        //json converter
+        //beannote converter
         MappingJackson2HttpMessageConverter jsonMessageConverter = new MappingJackson2HttpMessageConverter();
         jsonMessageConverter.setPrettyPrint(Boolean.FALSE);
         jsonMessageConverter.setObjectMapper(jsonObjectMapper);

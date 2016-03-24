@@ -77,7 +77,7 @@ public class JsonUtil {
     }
 
     /**
-     * json 映射实体bean
+     * beannote 映射实体bean
      * @param json json字符串
      * @param clazz 实体类
      * @param <T> 泛型

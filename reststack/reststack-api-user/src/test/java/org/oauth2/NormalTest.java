@@ -20,7 +20,17 @@ public class NormalTest {
         this.show(MockUtil.mock(User.class));
     }
 
+    @Test
+    public void typeTest(){
+        this.show((new String[]{""}).getClass().isArray());
+    }
+
+    public void show(String str){
+        System.out.println(str);
+    }
+
     public void show(Object object){
+
         try {
             System.out.println(objectMapper.writeValueAsString(object));
         } catch (IOException e) {

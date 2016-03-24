@@ -25,12 +25,12 @@
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
     <bean id="contentManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
         <property name="favorPathExtension" value="false"/>
-        <property name="defaultContentType" value="application/json"/>
+        <property name="defaultContentType" value="application/beannote"/>
     </bean>
     <bean id="messageDateFormat" class="sample.war.HttpServiceDateFormat"/>
     <mvc:annotation-driven content-negotiation-manager="contentManager">
         <mvc:message-converters register-defaults="true">
-            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+            <bean class="org.springframework.http.converter.beannote.MappingJackson2HttpMessageConverter">
                 <property name="prettyPrint" value="false"/>
                 <property name="objectMapper" ref="jacksonObjectMapper"/>
             </bean>

@@ -36,7 +36,13 @@ public class UserController {
     }
 
     @API(name = "添加新用户",auth = false,params = "无",reqClass = User.class,respClass = User.class)
-    @RequestMapping(value = "/documents",method = RequestMethod.POST)
+    @RequestMapping(value = "/users/add",method = RequestMethod.POST)
+    public Object updateUser(@RequestBody User user){
+        return new User();
+    }
+
+    @API(name = "更新新用户",auth = false,params = "无",reqClass = User.class,respClass = User.class)
+    @RequestMapping(value = "/users/update",method = RequestMethod.POST)
     public Object addUser(@RequestBody User user){
         return new User();
     }
