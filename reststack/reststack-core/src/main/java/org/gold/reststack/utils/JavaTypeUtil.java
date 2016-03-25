@@ -11,6 +11,7 @@ public class JavaTypeUtil {
     public static final Set<String> PRIMITIVE_NORMAL_TYPES = new HashSet<String>();
 
     static {
+        PRIMITIVE_NORMAL_TYPES.add("java.lang.String");
         PRIMITIVE_NORMAL_TYPES.add("java.lang.Integer");
         PRIMITIVE_NORMAL_TYPES.add("java.lang.Long");
         PRIMITIVE_NORMAL_TYPES.add("java.lang.Float");

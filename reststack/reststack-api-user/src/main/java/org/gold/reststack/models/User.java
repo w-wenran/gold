@@ -35,6 +35,12 @@ public class User {
     @Column(name = "age",nullable = false)
     private Integer age;
 
+
+    @Note("用户角色")
+    @JsonProperty("user_role")
+    @Transient
+    private Role userRole;
+
     public Long getUserId() {
         return userId;
     }

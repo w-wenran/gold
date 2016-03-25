@@ -5,6 +5,7 @@ import org.gold.reststack.models.RequestRouting;
 import org.gold.reststack.utils.JsonUtil;
 import org.gold.reststack.utils.MockUtil;
 import org.gold.reststack.utils.ResourceUtil;
+import org.gold.reststack.utils.beannote.BeanNoteHandler;
 import org.springframework.context.ApplicationContext;
 
 import javax.servlet.http.HttpServletRequest;
@@ -86,13 +87,17 @@ public class ApiDocumentHandler {
                 target.append("<div class=\"item-lft\">请求地址</div>").append(String.format("<div class=\"item-rt code\">%s</div>",routing.getReqUrl()));
                 target.append("<div class=\"item-lft\">地址参数</div>").append(String.format("<div class=\"item-rt code\">%s</div>", Arrays.toString(routing.getParams())));
                 if(!Undefined.class.equals(routing.getReqClass())){
-                    target.append("<div class=\"item-lft\">BODY参数</div>").append(String.format("<div class=\"item-rt code\">%s</div>",JsonUtil.toJson(MockUtil.mock(routing.getReqClass()))));
+                    target.append("<div class=\"item-lft\">BODY参数</div>").append(String.format("<pre class=\"item-rt code\">%s</pre>",JsonUtil.toJson(MockUtil.mock(routing.getReqClass()))));
                 }
                 String result = routing.getRespData();
                 if(routing.getRespData().length()<=0){
                     result = JsonUtil.toJson(MockUtil.mock(routing.getRespClass()));
+
                 }
-                target.append("<div class=\"item-lft\">返回结果</div>").append(String.format("<div class=\"item-rt code\">%s</div>", result));
+                target.append("<div class=\"item-lft\">返回结果</div>").append(String.format("<pre class=\"item-rt code\">%s</pre>", result));
+                if(!Undefined.class.equals(routing.getRespClass())){
+                    target.append("<div class=\"item-lft\">结果说明</div>").append(String.format("<pre class=\"item-rt code\">%s</pre>", MockUtil.beanNote(routing.getRespClass())));
+                }
                 target.append("</div></div>");
                 index++;
             }

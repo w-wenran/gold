@@ -1,8 +1,7 @@
 package org.gold.reststack.utils.beannote;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.gold.reststack.utils.JavaTypeUtil;
-import org.gold.reststack.utils.mock.MockHandler;
-import org.gold.reststack.utils.mock.MockHandlerFactory;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -23,12 +22,13 @@ public class BeanNoteAdapter {
         for (Field field : fields){
             Node node = new Node();
             node.setIndex(index);
-            node.setNodeKey(field.getName());
+            JsonProperty jsonProperty = field.getAnnotation(JsonProperty.class);
+            node.setNodeKey((jsonProperty==null||jsonProperty.value().length()<=0)?field.getName():jsonProperty.value());
             Note note = field.getAnnotation(Note.class);
             node.setNodeNote(note==null?"-":note.value());
             Class<?> fc = (Class<?>) field.getGenericType();
             if(!JavaTypeUtil.isNormal(fc)){//递归
-                node.setSubNodes(readNodes(field.getType(),index++));
+                node.setSubNodes(readNodes(field.getType(),index+1));
             }
             nodes.add(node);
         }

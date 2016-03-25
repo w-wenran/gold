@@ -1,5 +1,6 @@
 package org.gold.reststack.utils.beannote;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -80,6 +81,7 @@ public class Node {
     }
 
     public List<Node> getSubNodes() {
+        if(subNodes==null)subNodes= Collections.emptyList();
         return subNodes;
     }
 
