@@ -72,6 +72,10 @@ public interface GrantHandler {
 		private String refreshToken;
 		private String scope;
 
+		public GrantHandlerResult() {
+
+		}
+
 		/**
 		 * Initialize this instance with these arguments.
 		 * These parameters is required.

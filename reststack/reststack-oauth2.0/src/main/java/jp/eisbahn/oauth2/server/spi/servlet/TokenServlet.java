@@ -156,7 +156,7 @@ public class TokenServlet extends HttpServlet {
 		HttpServletRequestAdapter request = new HttpServletRequestAdapter(req);
 		Response response = token.handleRequest(request);
 		resp.setStatus(response.getCode());
-		resp.setContentType("application/beannote; charset=UTF-8");
+		resp.setContentType("application/json; charset=UTF-8");
 		PrintWriter writer = resp.getWriter();
 		IOUtils.write(response.getBody(), writer);
 		writer.flush();
