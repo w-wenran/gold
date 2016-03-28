@@ -21,12 +21,7 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         ServletRegistration.Dynamic dispatcher  = servletContext.addServlet("dispatcher",new DispatcherServlet());
-        dispatcher.addMapping("/api/*");
+        dispatcher.addMapping("/*");
         dispatcher.setLoadOnStartup(1);
-
-        ServletRegistration.Dynamic api_document = servletContext.addServlet("api_document",new APIDocumentServlet());
-        api_document.addMapping("/apis/documents");
-        api_document.setLoadOnStartup(1);
-        
     }
 }

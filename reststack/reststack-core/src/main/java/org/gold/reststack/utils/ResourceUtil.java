@@ -1,5 +1,7 @@
 package org.gold.reststack.utils;
 
+import org.gold.reststack.exception.ResourceNotFoundException;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -20,15 +22,16 @@ public class ResourceUtil {
      */
     public static String getResourceContent(String resourcePackage){
         StringBuffer stringBuffer = new StringBuffer();
+        InputStream inputStream = ResourceUtil.class.getClassLoader().getResourceAsStream(resourcePackage);
+        if(inputStream==null) throw new ResourceNotFoundException("资源不存在");
         try {
-            InputStream inputStream = ResourceUtil.class.getClassLoader().getResourceAsStream(resourcePackage);
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
-            String line = "";
+            String line ;
             while ((line = reader.readLine()) != null) {
                 stringBuffer.append(line+ENTER_NEWLINE_CODE);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException("加载资源失败",e);
         }
         return stringBuffer.toString();
     }
