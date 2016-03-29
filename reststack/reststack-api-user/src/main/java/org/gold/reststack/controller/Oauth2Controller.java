@@ -2,17 +2,14 @@ package org.gold.reststack.controller;
 
 import jp.eisbahn.oauth2.server.granttype.GrantHandler;
 import org.gold.reststack.annotation.API;
-import org.gold.reststack.utils.ResourceUtil;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * oauth2.0授权
@@ -26,7 +23,7 @@ public class Oauth2Controller {
     @RequestMapping(value = "/oauth2/authorize",method = RequestMethod.GET)
     public void authorize(HttpServletRequest request, HttpServletResponse response){
         try {
-            request.getRequestDispatcher("index.html").forward(request,response);
+            request.getRequestDispatcher("/index.html").forward(request,response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
