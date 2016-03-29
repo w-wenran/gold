@@ -19,7 +19,7 @@ import java.io.IOException;
 public class Oauth2Controller {
 
     @API(name = "oauth2用户登录授权Code",params = {"client_id:第三方应用标识ID",
-            "response_type:目前只支持code","redirect_uri:登录后跳转的第三方地址"},respData = "医指通登录授权界面")
+            "response_type:目前只支持code","redirect_uri:登录后跳转的第三方地址"},respData = "授權登录授权界面")
     @RequestMapping(value = "/oauth2/authorize",method = RequestMethod.GET)
     public void authorize(HttpServletRequest request, HttpServletResponse response){
         try {
