@@ -23,6 +23,7 @@ public class Oauth2Controller {
     @RequestMapping(value = "/oauth2/authorize",method = RequestMethod.GET)
     public void authorize(HttpServletRequest request, HttpServletResponse response){
         try {
+
             request.getRequestDispatcher("/index.html").forward(request,response);
         } catch (ServletException e) {
             e.printStackTrace();

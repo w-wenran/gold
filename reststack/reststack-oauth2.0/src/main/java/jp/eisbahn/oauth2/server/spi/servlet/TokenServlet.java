@@ -67,8 +67,6 @@ import java.io.PrintWriter;
  * @author Yoichiro Tanaka
  *
  */
-@SuppressWarnings("serial")
-@WebServlet(name = "token_servlet",urlPatterns = "/token")
 public class TokenServlet extends HttpServlet {
 
 	private static final String DATA_HANDLER_FACTORY_CLASSNAME = "dataHandlerFactory";
